@@ -254,7 +254,7 @@ int main(int argc, char **argv)
     }
 
 	  std::stringstream ss;
-	  ss << "Connected to";
+	  ss << "[Hokuyo] Connected to";
 	  if(publish_multiecho){
 	    ss << " multiecho";
 	  }
@@ -318,7 +318,7 @@ int main(int argc, char **argv)
 	  // Start the urgwidget
     try{
       urg_->start();
-      ROS_INFO("Streaming data.");
+      ROS_INFO("[Hokuyo] Streaming data.");
     } catch(std::runtime_error& e){
       ROS_ERROR_THROTTLE(10.0, "Error starting Hokuyo: %s", e.what());
       ros::spinOnce();

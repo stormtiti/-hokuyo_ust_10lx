@@ -2,8 +2,15 @@
   <node pkg="urg_node" type="urg_node" name="urg_node" output="screen">
     <remap from="/scan" to="/raw_scan" />
     <param name="ip_address" value="192.168.0.10"/>
-    <param name="frame_id"   value="base_laser"/>
-    <param name="publish_intensity"   value="false"/>
+    <param name="frame_id"     value="base_laser"/>
+    <param name="publish_intensity" value="false"/>
+    <param name="publish_multiecho" value="false"/>
+    <param name="angle_min"         value="-2.1817"/>
+    <param name="angle_max"         value="2.1817"/>
+    <!-- limit beams number 501 [from 0 to 500] -->
+    <param name="cluster"           value="2"/>
+    <!-- limit raw scan publish frequency around 13Hz -->
+    <param name="skip"              value="2"/> 
   </node>
   <node pkg="tf" type="static_transform_publisher" name="urg_tf" args="0.121 0 0 0 0 0 base_link base_laser 50"/>
 </launch>
